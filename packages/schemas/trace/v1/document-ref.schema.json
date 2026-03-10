@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.terroir.tech/trace/v1/document-ref.schema.json",
+  "title": "Trace Document Reference",
+  "description": "Reference to evidence material linked to a trace event.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["uri", "contentHash", "visibility"],
+  "properties": {
+    "uri": { "type": "string", "minLength": 1 },
+    "contentHash": { "type": "string", "minLength": 16 },
+    "mediaType": { "type": "string" },
+    "visibility": {
+      "type": "string",
+      "enum": ["PUBLIC", "PRIVATE"]
+    }
+  }
+}

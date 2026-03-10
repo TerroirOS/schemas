@@ -1,0 +1,56 @@
+{
+  "producer": {
+    "producerId": "producer-orkolani-001",
+    "legalName": "Orkolani Family Cellar",
+    "countryCode": "GE",
+    "region": "Kakheti",
+    "organizationWallet": "0x1111111111111111111111111111111111111111"
+  },
+  "batch": {
+    "batchId": "demo-batch-001",
+    "producerId": "producer-orkolani-001",
+    "productType": "Wine",
+    "varietalOrSubtype": "Saperavi",
+    "vineyardOrFarmLocation": "Telavi, Kakheti",
+    "harvestDate": "2025-09-20",
+    "schemaVersion": "1.0.0"
+  },
+  "issuer": {
+    "issuerId": "issuer-georgia-gi-board",
+    "organizationName": "Georgia GI Board",
+    "walletAddress": "0x2222222222222222222222222222222222222222",
+    "roles": ["CERTIFIER", "ASSOCIATION"],
+    "trusted": true
+  },
+  "traceEvent": {
+    "schemaVersion": "1.0.0",
+    "eventId": "event-000001",
+    "batchId": "demo-batch-001",
+    "eventType": "THIRD_PARTY_VERIFIED",
+    "issuerId": "issuer-georgia-gi-board",
+    "timestamp": "2026-01-12T14:25:00Z",
+    "payload": {
+      "checklistVersion": "2026.01",
+      "result": "PASS"
+    },
+    "documentRefs": [
+      {
+        "uri": "s3://trace-evidence/orkolani/inspection-2026-01.pdf",
+        "contentHash": "ecf3b65f8db4a8c38e5b4e38f9e2782c",
+        "mediaType": "application/pdf",
+        "visibility": "PRIVATE"
+      }
+    ],
+    "signature": "0xabc123abc123abc123abc123abc123abc123abc123abc123abc123abc123ab"
+  },
+  "verificationResult": {
+    "batchId": "demo-batch-001",
+    "verifiedAt": "2026-01-13T10:00:00Z",
+    "completeLifecycle": true,
+    "trustedIssuersOnly": true,
+    "signaturesValid": true,
+    "hashesConsistent": true,
+    "chainAnchoringStatus": "COMPLETE",
+    "notes": ["All expected events and trust checks passed."]
+  }
+}

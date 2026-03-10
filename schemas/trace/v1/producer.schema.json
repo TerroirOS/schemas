@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.terroir.tech/trace/v1/producer.schema.json",
+  "title": "Trace Producer",
+  "description": "Producer organization reference for trace records.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["producerId", "legalName", "countryCode", "organizationWallet"],
+  "properties": {
+    "producerId": { "type": "string", "minLength": 3 },
+    "legalName": { "type": "string", "minLength": 2 },
+    "countryCode": { "type": "string", "minLength": 2, "maxLength": 2 },
+    "region": { "type": "string" },
+    "organizationWallet": { "type": "string", "pattern": "^0x[a-fA-F0-9]{40}$" }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "terroiros-schemas",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Canonical Terroir schema contracts and adapters.",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build -w @terroiros/schemas",
+    "typecheck": "npm run typecheck -w @terroiros/schemas",
+    "validate:json": "node scripts/validate-json.mjs",
+    "validate:schemas": "node scripts/validate-schemas.mjs",
+    "validate:examples": "node scripts/validate-examples.mjs",
+    "validate:sql": "node scripts/validate-sql.mjs",
+    "validate": "npm run validate:json && npm run validate:schemas && npm run validate:examples && npm run validate:sql",
+    "ci": "npm run build && npm run typecheck && npm run validate",
+    "check:compat": "node scripts/check-schema-compat.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "typescript": "^5.6.3"
+  }
+}

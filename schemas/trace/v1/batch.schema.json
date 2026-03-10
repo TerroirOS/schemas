@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.terroir.tech/trace/v1/batch.schema.json",
+  "title": "Trace Batch",
+  "description": "Core batch/passport record.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "batchId",
+    "producerId",
+    "productType",
+    "varietalOrSubtype",
+    "vineyardOrFarmLocation",
+    "harvestDate",
+    "schemaVersion"
+  ],
+  "properties": {
+    "batchId": { "type": "string", "minLength": 8 },
+    "producerId": { "type": "string", "minLength": 3 },
+    "productType": { "type": "string", "minLength": 2 },
+    "varietalOrSubtype": { "type": "string", "minLength": 2 },
+    "vineyardOrFarmLocation": { "type": "string", "minLength": 2 },
+    "harvestDate": { "type": "string", "format": "date" },
+    "schemaVersion": { "type": "string", "default": "1.0.0" }
+  }
+}

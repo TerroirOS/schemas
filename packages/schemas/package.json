@@ -1,0 +1,35 @@
+{
+  "name": "@terroiros/schemas",
+  "version": "1.0.0",
+  "description": "Terroir canonical schemas with TS and Zod adapters.",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "trace",
+    "schemas",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./trace/v1/producer.schema.json": "./trace/v1/producer.schema.json",
+    "./trace/v1/batch.schema.json": "./trace/v1/batch.schema.json",
+    "./trace/v1/issuer.schema.json": "./trace/v1/issuer.schema.json",
+    "./trace/v1/document-ref.schema.json": "./trace/v1/document-ref.schema.json",
+    "./trace/v1/trace-event.schema.json": "./trace/v1/trace-event.schema.json",
+    "./trace/v1/verification-result.schema.json": "./trace/v1/verification-result.schema.json"
+  },
+  "scripts": {
+    "prebuild": "node ../../scripts/sync-package-schemas.mjs",
+    "build": "npm run prebuild && tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  }
+}

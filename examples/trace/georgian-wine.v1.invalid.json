@@ -1,0 +1,51 @@
+{
+  "producer": {
+    "producerId": "p1",
+    "legalName": "A",
+    "countryCode": "GEO",
+    "organizationWallet": "not-a-wallet"
+  },
+  "batch": {
+    "batchId": "short",
+    "producerId": "p1",
+    "productType": "W",
+    "varietalOrSubtype": "S",
+    "vineyardOrFarmLocation": "X",
+    "harvestDate": "20-09-2025",
+    "schemaVersion": 1
+  },
+  "issuer": {
+    "issuerId": "i",
+    "organizationName": "X",
+    "walletAddress": "0x123",
+    "roles": [],
+    "trusted": "yes"
+  },
+  "traceEvent": {
+    "schemaVersion": "1.0.0",
+    "eventId": "e1",
+    "batchId": "short",
+    "eventType": "UNKNOWN_EVENT",
+    "issuerId": "i",
+    "timestamp": "yesterday",
+    "payload": "should-be-object",
+    "documentRefs": [
+      {
+        "uri": "",
+        "contentHash": "tiny",
+        "visibility": "INTERNAL"
+      }
+    ],
+    "signature": "deadbeef"
+  },
+  "verificationResult": {
+    "batchId": "short",
+    "verifiedAt": "invalid-date",
+    "completeLifecycle": "true",
+    "trustedIssuersOnly": "true",
+    "signaturesValid": true,
+    "hashesConsistent": true,
+    "chainAnchoringStatus": "DONE",
+    "notes": "not-an-array"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.terroir.tech/trace/v1/trace-event.schema.json",
+  "title": "Trace Event",
+  "description": "Signed lifecycle event linked to batch provenance.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "eventId",
+    "batchId",
+    "eventType",
+    "issuerId",
+    "timestamp",
+    "payload",
+    "documentRefs",
+    "signature"
+  ],
+  "properties": {
+    "schemaVersion": { "type": "string", "default": "1.0.0" },
+    "eventId": { "type": "string", "minLength": 8 },
+    "batchId": { "type": "string", "minLength": 8 },
+    "eventType": {
+      "type": "string",
+      "enum": [
+        "BATCH_CREATED",
+        "HARVEST_RECORDED",
+        "PROCESSING_RECORDED",
+        "BOTTLING_RECORDED",
+        "SHIPMENT_RECORDED",
+        "THIRD_PARTY_VERIFIED"
+      ]
+    },
+    "issuerId": { "type": "string", "minLength": 3 },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "payload": {
+      "type": "object",
+      "additionalProperties": true,
+      "propertyNames": { "type": "string" }
+    },
+    "payoutReference": { "type": "string", "minLength": 4 },
+    "documentRefs": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "$ref": "https://schemas.terroir.tech/trace/v1/document-ref.schema.json"
+      }
+    },
+    "prevEventHash": { "type": "string", "minLength": 16 },
+    "signature": { "type": "string", "minLength": 32 }
+  }
+}

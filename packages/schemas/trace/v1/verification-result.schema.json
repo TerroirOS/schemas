@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.terroir.tech/trace/v1/verification-result.schema.json",
+  "title": "Trace Verification Result",
+  "description": "Computed verification output for a batch.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "batchId",
+    "verifiedAt",
+    "completeLifecycle",
+    "trustedIssuersOnly",
+    "signaturesValid",
+    "hashesConsistent",
+    "chainAnchoringStatus",
+    "notes"
+  ],
+  "properties": {
+    "batchId": { "type": "string", "minLength": 8 },
+    "verifiedAt": { "type": "string", "format": "date-time" },
+    "completeLifecycle": { "type": "boolean" },
+    "trustedIssuersOnly": { "type": "boolean" },
+    "signaturesValid": { "type": "boolean" },
+    "hashesConsistent": { "type": "boolean" },
+    "chainAnchoringStatus": {
+      "type": "string",
+      "enum": ["PENDING", "PARTIAL", "COMPLETE"]
+    },
+    "notes": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}
